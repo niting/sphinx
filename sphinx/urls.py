@@ -7,7 +7,8 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'sphinx.views.home', name='home'),
     # url(r'^sphinx/', include('sphinx.foo.urls')),
-
+	url(r'^$', 'sphinx.views.index', name='index'),
+	url(r'^add/question', 'sphinx.views.add_question'),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 	url(r'^admin/', include(admin.site.urls)),
 )
