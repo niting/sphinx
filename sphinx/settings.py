@@ -1,4 +1,6 @@
 # Django settings for sphinx project.
+import os
+PROJECT_DIR = os.path.dirname(__file__)
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -118,7 +120,9 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
    	'django.contrib.admin',
     'django.contrib.admindocs',
+	'sphinx',
 	'south',
+	'genericm2m',
 )
 
 # A sample logging configuration. The only tangible logging
