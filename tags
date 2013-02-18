@@ -1,0 +1,56 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ADMINS	sphinx/settings.py	/^ADMINS = ($/;"	v
+Comment	sphinx/models.py	/^class Comment(models.Model):$/;"	c
+DATABASES	sphinx/settings.py	/^DATABASES = {$/;"	v
+DEBUG	sphinx/settings.py	/^DEBUG = True$/;"	v
+INSTALLED_APPS	sphinx/settings.py	/^INSTALLED_APPS = ($/;"	v
+LANGUAGE_CODE	sphinx/settings.py	/^LANGUAGE_CODE = 'en-us'$/;"	v
+LOGGING	sphinx/settings.py	/^LOGGING = {$/;"	v
+MANAGERS	sphinx/settings.py	/^MANAGERS = ADMINS$/;"	v
+MEDIA_ROOT	sphinx/settings.py	/^MEDIA_ROOT = ''$/;"	v
+MEDIA_URL	sphinx/settings.py	/^MEDIA_URL = ''$/;"	v
+MIDDLEWARE_CLASSES	sphinx/settings.py	/^MIDDLEWARE_CLASSES = ($/;"	v
+Migration	sphinx/migrations/0001_initial.py	/^class Migration(SchemaMigration):$/;"	c
+PROJECT_DIR	sphinx/settings.py	/^PROJECT_DIR = os.path.dirname(__file__)$/;"	v
+Question	sphinx/models.py	/^class Question(models.Model):$/;"	c
+ROOT_URLCONF	sphinx/settings.py	/^ROOT_URLCONF = 'sphinx.urls'$/;"	v
+SECRET_KEY	sphinx/settings.py	/^SECRET_KEY = 'vyqq*&amp;ea3*srpz8s#_in1))8v1g9i@wmb&amp;xlyn5x1i_7k6@=xs'$/;"	v
+SITE_ID	sphinx/settings.py	/^SITE_ID = 1$/;"	v
+STATICFILES_DIRS	sphinx/settings.py	/^STATICFILES_DIRS = ($/;"	v
+STATICFILES_FINDERS	sphinx/settings.py	/^STATICFILES_FINDERS = ($/;"	v
+STATIC_ROOT	sphinx/settings.py	/^STATIC_ROOT = PROJECT_DIR.join('media')$/;"	v
+STATIC_URL	sphinx/settings.py	/^STATIC_URL = '\/static\/'$/;"	v
+TAG_TYPE	sphinx/models.py	/^	TAG_TYPE = Choices('college', 'company', 'topic', 'discipline', 'unknown')$/;"	v	class:Tag
+TEMPLATE_DEBUG	sphinx/settings.py	/^TEMPLATE_DEBUG = DEBUG$/;"	v
+TEMPLATE_DIRS	sphinx/settings.py	/^TEMPLATE_DIRS = ($/;"	v
+TEMPLATE_LOADERS	sphinx/settings.py	/^TEMPLATE_LOADERS = ($/;"	v
+TIME_ZONE	sphinx/settings.py	/^TIME_ZONE = 'Asia\/Kolkata'$/;"	v
+Tag	sphinx/models.py	/^class Tag(models.Model):$/;"	c
+USE_I18N	sphinx/settings.py	/^USE_I18N = True$/;"	v
+USE_L10N	sphinx/settings.py	/^USE_L10N = True$/;"	v
+USE_TZ	sphinx/settings.py	/^USE_TZ = True$/;"	v
+UserProfile	sphinx/models.py	/^class UserProfile(models.Model):$/;"	c
+WSGI_APPLICATION	sphinx/settings.py	/^WSGI_APPLICATION = 'sphinx.wsgi.application'$/;"	v
+application	sphinx/wsgi.py	/^application = get_wsgi_application()$/;"	v
+asked_by	sphinx/models.py	/^	asked_by = models.ForeignKey('UserProfile')$/;"	v	class:Question
+backwards	sphinx/migrations/0001_initial.py	/^    def backwards(self, orm):$/;"	m	class:Migration
+comment	sphinx/models.py	/^	comment = models.TextField()$/;"	v	class:Comment
+comment_by	sphinx/models.py	/^	comment_by = models.ForeignKey('UserProfile')$/;"	v	class:Comment
+complete_apps	sphinx/migrations/0001_initial.py	/^    complete_apps = ['sphinx']/;"	v	class:Migration
+forwards	sphinx/migrations/0001_initial.py	/^    def forwards(self, orm):$/;"	m	class:Migration
+index	sphinx/views.py	/^def index(request):$/;"	f
+models	sphinx/migrations/0001_initial.py	/^    models = {$/;"	v	class:Migration
+name	sphinx/models.py	/^	name = models.CharField(max_length=20)$/;"	v	class:Tag
+question	sphinx/models.py	/^	question = models.ForeignKey('Question')$/;"	v	class:Comment
+question	sphinx/models.py	/^	question = models.ManyToManyField(Question)$/;"	v	class:Tag
+question	sphinx/models.py	/^	question = models.TextField()$/;"	v	class:Question
+score	sphinx/models.py	/^	score = models.PositiveIntegerField()$/;"	v	class:UserProfile
+tag_type	sphinx/models.py	/^	tag_type = models.CharField(choices=TAG_TYPE,$/;"	v	class:Tag
+urlpatterns	sphinx/urls.py	/^urlpatterns = patterns('',$/;"	v
+user	sphinx/models.py	/^	user = models.OneToOneField(User)$/;"	v	class:UserProfile
+votes	sphinx/models.py	/^	votes = models.IntegerField()$/;"	v	class:Question

@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+
+<head>
+	<title>
+		{% block title %}
+			Sphinx
+		{% endblock %}
+	</title>
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}/css/base.css" />
+	<script src="{{ STATIC_URL }}/js/jquery-1.9.1.js"></script>
+	<script src="{{ STATIC_URL }}/js/common.js"></script>
+</head>
+
+<body>
+	<div class="header">
+		{% block header %}
+			<div class="top_menu">
+				{% block menu %}
+				{% endblock %}
+			</div>
+			<div class="logo">
+				{% block logo %}
+				{% endblock %}
+			</div>
+		{% endblock %}
+	</div>
+
+	<div class="left_column">
+		{% block left_column %}
+			<div class="side_menu">
+				{% block side_menu %}
+				{% endblock %}
+			</div>
+			<div class="search">
+			</div>
+		{% endblock %}
+	</div>
+
+	<div class="right_column">
+		{% block right_column %}
+			<div class="contents">
+				{% block contents %}
+					<div id="bread_crumb">
+						{% block bread_crumb %}
+						{% endblock %}
+					</div>
+					<div id="inner_contents">
+						{% block inner_contents %}
+						{% endblock %}
+					</div>
+					<div id="tags">
+						{% block tags %}
+						{% endblock %}
+					</div>
+				{% endblock %}
+			</div>
+		{% endblock %}
+	</div>
+	
+</body>
+
+</html>
+
