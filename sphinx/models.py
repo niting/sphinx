@@ -10,12 +10,12 @@ class UserProfile(models.Model):
 
 class Question(models.Model):
 	question = models.TextField()
-	asked_by = models.ForeignKey('UserProfile')
+	asked_by = models.ForeignKey(User, related_name='asked_by')
 	votes = models.IntegerField()
 	
 class Comment(models.Model):
 	comment = models.TextField()
-	comment_by = models.ForeignKey('UserProfile')
+	comment_by = models.ForeignKey(User)
 	question = models.ForeignKey('Question')
 
 class Tag(models.Model):
@@ -23,7 +23,7 @@ class Tag(models.Model):
 		have a popularity score too for the popularity of a tag, which
 		would help us with search results and getting maximum matches"""
 	name = models.CharField(max_length=20)
-	tag_id = models.IntegerField()
+	tag_id = models.IntegerField(primary_key=True)
 	TAG_TYPE = Choices('college', 'company', 'topic', 'discipline', 'unknown')
 	tag_type = models.CharField(choices=TAG_TYPE,
 								default=TAG_TYPE.unknown, max_length=20)
