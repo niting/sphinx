@@ -1,0 +1,3 @@
+django-generic-m2m
+South
+django-model-utils

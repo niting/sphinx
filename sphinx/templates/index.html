@@ -1,19 +1,28 @@
 {% extends "base.html" %}
 
-{% block logo %}
-	Sphinx
+{% block logo %}Sphinx{% endblock %}
+
+{% block content %}
+    <h3>Objectives :</h3>
+    <p>To fill in the current gaps in technical interview preparation websites and come up with an application that involves gamification to moderate quality along with other added features.</p>
+
+    <h3>Features :</h3>
+    <p>
+    1) Add a question<br/>
+    2) Tag a question<br/>
+    3) Similar questions<br/>
+    4) Gamification model<br/>
+    </p>
 {% endblock %}
-
-{% block side_menu %}
-	<ul>
-		<li> Add a Question </li>
-		<li> Add answers </li>
-		<li> Add a post </li>
-	</ul>
-
-{% endblock %}	
-
-{% block inner_contents %}
-	Some text here. Lorem ipsum 
+{% block sidebar %}
+    {% if not user.is_authenticated %}
+    <h2 class="text-center">Sign In</h2>
+    <p>
+        #TODO : Only for pilani - filter accounts based on @pilani.bits-pilani.ac.in
+    </p>
+    <a class="btn btn-primary btn-block" href="/auth/google/">Sign In with Google</a>
+    {% else %}
+        <h2>Logged In!</h2>
+    {% endif %}
 
 {% endblock %}
