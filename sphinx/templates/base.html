@@ -1,82 +1,52 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>
-		{% block title %}
-			Sphinx
-		{% endblock %}
-	</title>
-<<<<<<< HEAD
-	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/bootstrap.css" />
-	<script src="{{STATIC_URL}}js/bootstrap.js"></script>
-=======
-	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/base.css" />
-	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/jquery.tagit.css" />
-	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/jquery-ui.css" />
-
-	<script src="{{ STATIC_URL }}js/jquery-1.9.1.js"></script>
-	<script src="{{ STATIC_URL }}js/jquery-ui.js"></script>
-	<script src="{{ STATIC_URL }}js/common.js"></script>
-	<script src="{{ STATIC_URL }}js/tag-it.js"></script>
->>>>>>> question
+    <title>
+        {% block title %}
+            Sphinx
+        {% endblock %}
+    </title>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/bootstrap.css" />
+    <script src="{{STATIC_URL}}js/bootstrap.js"></script>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-static-top">
+<div class="navbar navbar-inverse navbar-static-top">
 
-        <div class="navbar-inner">
-            <div class="container">
-                {% block header %}
+    <div class="navbar-inner">
+        <div class="container">
+            {% block header %}
                 <a class="brand" href="#">{% block logo %}{% endblock %}</a>
                 <div class="nav-collapse collapse">
                     <ul class="nav">
                         {% block menu %}
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                            <li class="active"><a href="#">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#contact">Contact</a></li>
                         {% endblock %}
                     </ul>
                     {% if user.is_authenticated %}
-                    <ul class="nav nav-pills pull-right">
-                        <li class="disabled">
-                            <a href="#">{{ user.email }}</a>
-                        </li>
-                        <li><a href="/auth/logout/">Logout</a></li>
-                    </ul>
+                        <ul class="nav nav-pills pull-right">
+                            <li class="disabled">
+                                <a href="#">{{ user.email }}</a>
+                            </li>
+                            <li><a href="/auth/logout/">Logout</a></li>
+                        </ul>
                     {% endif %}
                 </div><!--/.nav-collapse -->{% endblock %}
-            </div>
         </div>
     </div>
-    <div class="container" style="padding-top: 50px">
-        <h1>Welcome to Sphinx</h1>
+</div>
+<div class="container" style="padding-top: 50px">
+    <h1>Welcome to Sphinx</h1>
 
-<<<<<<< HEAD
-        <div class="row">
-            <div class="span9">{% block content %}{% endblock %}</div>
-            <div class="span3">
-                <div class="well sidebar-nav" style="min-height: 400px">{% block sidebar %}{% endblock %}</div>
-            </div>
+    <div class="row">
+        <div class="span9">{% block content %}{% endblock %}</div>
+        <div class="span3">
+            <div class="well sidebar-nav" style="min-height: 400px">{% block sidebar %}{% endblock %}</div>
         </div>
     </div>
-=======
-	<div class="right_column">
-		{% block right_column %}
-			<div class="contents">
-				{% block contents %}
-					<div id="bread_crumb">
-						{% block bread_crumb %}
-						{% endblock %}
-					</div>
-					<div id="inner_contents">
-						{% block inner_contents %}
-						{% endblock %}
-					</div>
-				{% endblock %}
-			</div>
-		{% endblock %}
-	</div>
->>>>>>> question
-	
+</div>
+
 </body>
 
 </html>

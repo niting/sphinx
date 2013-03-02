@@ -1,20 +1,13 @@
 from django.shortcuts import render_to_response
-<<<<<<< HEAD
 from django.template.context import RequestContext
-
-
-
-def index(request):
-	return render_to_response('index.html',context_instance=RequestContext(request))
-=======
-from django.template import RequestContext
 from sphinx.forms import AddQuestionForm
 from django.http import HttpResponseRedirect
 from sphinx.models import *
+
 def index(request):
 	return render_to_response('index.html', 
 				context_instance=RequestContext(request))
->>>>>>> question
+
 
 def add_question(request):
 	if request.method == 'POST':

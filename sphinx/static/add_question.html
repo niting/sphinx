@@ -1,6 +1,6 @@
-{% extends 'base.html' %}
+{% extends 'index.html' %}
 
-{% block content %}
+{% block inner_contents %}
 	{% block add_question %}
 		<form method="post" action="/add/question">{% csrf_token %}
 			{{ form.as_p }}	

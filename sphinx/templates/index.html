@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 
-<<<<<<< HEAD
 {% block logo %}Sphinx{% endblock %}
 
 {% block content %}
@@ -9,34 +8,19 @@
 
     <h3>Features :</h3>
     <p>
-    1) Add a question<br/>
-    2) Tag a question<br/>
-    3) Similar questions<br/>
-    4) Gamification model<br/>
+        1) Add a question<br/>
+        2) Tag a question<br/>
+        3) Similar questions<br/>
+        4) Gamification model<br/>
     </p>
-=======
-{% block logo %}
-	Sphinx
-{% endblock %}
-
-{% block side_menu %}
-	<ul>
-		<li> <a href="/add/question">Add a Question</a></li>
-		<li> Add answers </li>
-		<li> Add a post </li>
-	</ul>
-{% endblock %}	
-
-{% block inner_contents %}
->>>>>>> question
 {% endblock %}
 {% block sidebar %}
     {% if not user.is_authenticated %}
-    <h2 class="text-center">Sign In</h2>
-    <p>
-        #TODO : Only for pilani - filter accounts based on @pilani.bits-pilani.ac.in
-    </p>
-    <a class="btn btn-large btn-primary btn-block" href="/auth/google/">Sign In with Google</a>
+        <h2 class="text-center">Sign In</h2>
+        <p>
+            #TODO : Only for pilani - filter accounts based on @pilani.bits-pilani.ac.in
+        </p>
+        <a class="btn btn-large btn-primary btn-block" href="/auth/google/">Sign In with Google</a>
     {% else %}
         <h2>Logged In!</h2>
     {% endif %}
