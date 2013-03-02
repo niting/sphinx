@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+
+{% block inner_contents %}
+	{% block add_question %}
+		<form method="post" action="/add/question">{% csrf_token %}
+			{{ form.as_p }}	
+			<input type="submit" value="Submit" />
+		</form>
+	{% endblock %}
+
+	{% block tags %}
+		Hi
+	{% endblock %}
+{% endblock %}
+

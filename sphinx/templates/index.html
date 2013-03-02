@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
+<<<<<<< HEAD
 {% block logo %}Sphinx{% endblock %}
 
 {% block content %}
@@ -13,6 +14,21 @@
     3) Similar questions<br/>
     4) Gamification model<br/>
     </p>
+=======
+{% block logo %}
+	Sphinx
+{% endblock %}
+
+{% block side_menu %}
+	<ul>
+		<li> <a href="/add/question">Add a Question</a></li>
+		<li> Add answers </li>
+		<li> Add a post </li>
+	</ul>
+{% endblock %}	
+
+{% block inner_contents %}
+>>>>>>> question
 {% endblock %}
 {% block sidebar %}
     {% if not user.is_authenticated %}
