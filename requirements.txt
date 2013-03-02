@@ -1,3 +1,5 @@
 django-generic-m2m
 South
 django-model-utils
+python-openid
+django-openid-auth
