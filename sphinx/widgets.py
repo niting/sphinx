@@ -1,9 +1,11 @@
-from django.forms import widget
+from django.forms import widgets
 
-class TagWidget(widget.MultiValueField):
+class TagWidget(widgets.TextInput):
 	"""Tagging widget to be rendered in a form"""
-	    def __init__(self, attrs=None):
-		    _widgets = (
-				widgets.MultiValueWidget(attrs=attrs, att
-			super(TagWidget, self).__init__(_widgets, attrs)
+	class Media:
+		css= {
+				'all' : ('css/jquery.tagit.css',)
+		}
+		js = ('js/tag-it.js',)
+		
 

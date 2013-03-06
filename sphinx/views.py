@@ -27,10 +27,13 @@ def add_question(request):
 				tag_instance = Tag(name=tag, tag_id=hash_val, popularity_score=0)
 				tag_instance.save()
 				tag_instance.question.add(question_instance)	 
-			return HttpResponseRedirect('/show/question')
+			return HttpResponseRedirect('/questions/show')
 	else:
 		form = AddQuestionForm()
 	return render_to_response('add_question.html', {
 								'form':form,
 								}, 
 							context_instance=RequestContext(request))
+
+def profile(request):
+	return render_to_response('profile.html', {}, context_instance=RequestContext(request))
