@@ -6,6 +6,6 @@ class TagWidget(widgets.TextInput):
 		css= {
 				'all' : ('css/jquery.tagit.css',)
 		}
-		js = ('js/tag-it.js',)
+		js = ('js/tag-it.js','js/common.js',)
 		
 
