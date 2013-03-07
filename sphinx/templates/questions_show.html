@@ -18,18 +18,17 @@
 	{% endblock %}
 
 	{% block list_answers %}
-		<table>
+		<ul class="media-list">
 			{% for answer in answers %}
-			<tr> 
-				<td>
-					<i class="icon-circle-arrow-up" style="display:block"></i> 
-					<i class="icon-circle-arrow-down pull-left" style="display:block"></i>
-				</td>
-				<td>
-				{{ answer }}
-				</td>
-			</tr>
+			<li class="media"> 
+						<i class="icon-circle-arrow-up" style="display:block"></i> 
+						<i class="icon-circle-arrow-down" style="display:block"></i>
+		
+					<div class="media-body">
+						{{ answer }}
+					</div>
+			</li>
 			{% endfor %}
-		</table>
+		</ul>
 	{% endblock %}
 {% endblock %}
