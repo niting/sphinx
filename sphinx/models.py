@@ -24,6 +24,15 @@ class Comment(models.Model):
 	comment_by = models.ForeignKey(User)
 	question = models.ForeignKey('Question')
 
+class Answer(models.Model):
+	answer = models.TextField()
+	answered_by = models.ForeignKey(User)
+	question = models.ForeignKey(Question)
+	votes = models.IntegerField(default=0)
+
+	def __unicode__(self):
+		return self.answer
+
 class Tag(models.Model):
 	""" Tag ID is a unique hash calculated from the tag string. We
 		have a popularity score too for the popularity of a tag, which
@@ -36,3 +45,6 @@ class Tag(models.Model):
 
 	question = models.ManyToManyField(Question)
 	popularity_score = models.IntegerField()	
+
+	def __unicode__(self):
+		return self.name

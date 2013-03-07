@@ -1,6 +1,7 @@
 from django.shortcuts import render_to_response
 from django.template.context import RequestContext
 from sphinx.forms import AddQuestionForm
+from sphinx.forms import AddAnswerForm
 from django.http import HttpResponseRedirect
 from sphinx.models import *
 
@@ -37,4 +38,19 @@ def questions_add(request):
 							context_instance=RequestContext(request))
 
 def questions_show(request, question_id):
-	return render_to_response('questions_show.html', {'question' : 'Test', 'tags':['dadd','asdad',]}, context_instance=RequestContext(request))
+	if request.method == 'POST':
+		form = AddAnswerForm(request.POST)
+		if form.is_valid():
+			answer_instance = form.save(commit = False)
+			answer_instance.question = Question.objects.get(pk=question_id)
+			answer_instance.answered_by = request.user
+			answer_instance.save()
+	else:
+		form = AddAnswerForm()
+	question = Question.objects.get(pk=question_id)
+	return render_to_response('questions_show.html', 
+								{'question' : question, 
+								'tags':question.tag_set.all(),
+								'answers':question.answer_set.all(),
+								'form':form}, 
+								context_instance=RequestContext(request))
