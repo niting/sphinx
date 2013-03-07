@@ -9,17 +9,27 @@
 </ul>
 
 	{% block add_answer %}
-	<form method="post" action={{ question.get_absolute_url }}>{% csrf_token %}
-		{{ form.as_p }}
-		<input class="btn" type="submit" value="Submit" />
-	</form>
+	{% if not answer_added %}
+		<form method="post" action={{ question.get_absolute_url }}>{% csrf_token %}
+			{{ form.as_p }}
+			<input class="btn" type="submit" value="Submit" />
+		</form>
+	{% endif %}
 	{% endblock %}
 
 	{% block list_answers %}
-		<ul>
+		<table>
 			{% for answer in answers %}
-				<li>{{ answer }}</li>
+			<tr> 
+				<td>
+					<i class="icon-circle-arrow-up" style="display:block"></i> 
+					<i class="icon-circle-arrow-down pull-left" style="display:block"></i>
+				</td>
+				<td>
+				{{ answer }}
+				</td>
+			</tr>
 			{% endfor %}
-		</ul>
+		</table>
 	{% endblock %}
 {% endblock %}
