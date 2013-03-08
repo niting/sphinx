@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<p class="lead">{{ question.question }}</p>
+<ul class="inline">
+	{% for tag in tags %}
+		<li><button class="btn btn-primary">{{ tag }}</button></li>
+	{% endfor %}
+</ul>
+
+	{% block add_answer %}
+	{% if not answer_added %}
+		<form method="post" action={{ question.get_absolute_url }}>{% csrf_token %}
+			{{ form.as_p }}
+			<input class="btn" type="submit" value="Submit" />
+		</form>
+	{% endif %}
+	{% endblock %}
+
+	{% block list_answers %}
+		<ul class="media-list">
+			{% for answer in answers %}
+			<li class="media"> 
+						<i class="icon-circle-arrow-up" style="display:block"></i> 
+						<i class="icon-circle-arrow-down" style="display:block"></i>
+		
+					<div class="media-body">
+						{{ answer }}
+					</div>
+			</li>
+			{% endfor %}
+		</ul>
+	{% endblock %}
+{% endblock %}
