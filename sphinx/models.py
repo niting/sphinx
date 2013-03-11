@@ -1,3 +1,5 @@
+#TODO: Change the votes option to not be an integer field but
+#TODO: rather a list of people who upvoted/downvoted
 from django.db import models
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
@@ -26,6 +28,14 @@ class Answer(models.Model):
 
 	class Meta:
 		unique_together = (("answered_by", "question"),)
+
+	def __unicode__(self):
+		return self.answer
+
+class Tip(models.Model):
+	tip = models.CharField(max_length=200)
+	tip_by = models.ForeignKey(User)
+	votes = models.IntegerField(default=0)
 
 	def __unicode__(self):
 		return self.answer
