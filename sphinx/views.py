@@ -1,7 +1,9 @@
+#TODO : Check if the user is logged in before serving anything under questions/ or tips/
 from django.shortcuts import render_to_response
 from django.template.context import RequestContext
 from sphinx.forms import AddQuestionForm
 from sphinx.forms import AddAnswerForm
+from sphinx.forms import AddTipForm
 from django.http import HttpResponseRedirect
 from sphinx.models import *
 
@@ -9,6 +11,25 @@ def index(request):
 	return render_to_response('index.html', 
 				context_instance=RequestContext(request))
 
+
+def tips_add(request):
+	if request.method == 'POST':
+		form = AddTipForm(request.POST)
+		if form.is_valid():
+			tip = request.POST['tip']
+			tip_instance = Tip(tip=tip, votes=0)
+			tip_instance.tip_by = request.user
+			tip_instance.save()
+			return HttpResponseRedirect(tip_instance.get_absolute_url())
+	else:
+		form = AddTipForm()
+	return render_to_response('tips_add.html',{'form':form},context_instance=RequestContext(request))
+
+def tips_show(request,tip_id):
+	tip = Tip.objects.get(pk=tip_id)
+	return render_to_response('tips_show.html', 
+								{'tip' : tip }, 
+								context_instance=RequestContext(request))
 
 def questions_add(request):
 	if request.method == 'POST':

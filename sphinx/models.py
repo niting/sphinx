@@ -37,6 +37,9 @@ class Tip(models.Model):
 	tip_by = models.ForeignKey(User)
 	votes = models.IntegerField(default=0)
 
+	def get_absolute_url(self):
+		return reverse('sphinx.views.tips_show', args=[str(self.id)])
+		
 	def __unicode__(self):
 		return self.answer
 

@@ -15,5 +15,8 @@ class AddAnswerForm(forms.ModelForm):
 				'answer': forms.widgets.Textarea(attrs={'rows':40}),
 		}
 
+class AddTipForm(forms.Form):
+	tip = forms.CharField(widget=forms.widgets.Textarea(
+		attrs={'rows':10,'cols':80,'class':'ui-widget ui-widget-content ui-corner-all'}))
 
 
