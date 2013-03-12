@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block includes %}
+	{{ form.media }}
+{% endblock %}
+{% block content %}
+	{% block add_question %}
+		<form method="post" action="/tips/add">{% csrf_token %}
+			{{ form.as_p }}	
+			<input class="btn" type="submit" value="Submit" />
+		</form>
+	{% endblock %}
+
+	{% block tags %}
+		Hi
+	{% endblock %}
+{% endblock %}
+
