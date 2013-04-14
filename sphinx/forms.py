@@ -18,5 +18,6 @@ class AddAnswerForm(forms.ModelForm):
 class AddTipForm(forms.Form):
 	tip = forms.CharField(widget=forms.widgets.Textarea(
 		attrs={'rows':10,'cols':80,'class':'ui-widget ui-widget-content ui-corner-all'}))
+	tags = forms.CharField(widget=TagWidget(attrs={'id':'add_tip_tags','size':40,}))
 
 

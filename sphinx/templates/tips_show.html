@@ -2,4 +2,9 @@
 {% block content %}
 
 <p class="lead">{{ tip.tip }}</p>
+<ul class="inline">
+	{% for tag in tags %}
+		<li><button class="btn btn-primary">{{ tag }}</button></li>
+	{% endfor %}
+</ul>
 {% endblock %}

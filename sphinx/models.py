@@ -12,13 +12,20 @@ class Question(models.Model):
 	question = models.TextField()
 	asked_by = models.ForeignKey(User, null=True, blank=True, related_name='asked_by')
 	votes = models.IntegerField()
+
 	def get_absolute_url(self):
 		return reverse('sphinx.views.questions_show', args=[str(self.id)])
+
+	def __unicode__(self):
+		return self.question
 
 class Comment(models.Model):
 	comment = models.TextField()
 	comment_by = models.ForeignKey(User)
 	question = models.ForeignKey('Question')
+
+	def __unicode__(self):
+		return self.comment
 
 class Answer(models.Model):
 	answer = models.TextField()
@@ -41,7 +48,7 @@ class Tip(models.Model):
 		return reverse('sphinx.views.tips_show', args=[str(self.id)])
 		
 	def __unicode__(self):
-		return self.answer
+		return self.tip
 
 class Tag(models.Model):
 	""" Tag ID is a unique hash calculated from the tag string. We
@@ -53,6 +60,8 @@ class Tag(models.Model):
 								default=TAG_TYPE.unknown, max_length=20)
 
 	question = models.ManyToManyField(Question)
+	tip = models.ManyToManyField(Tip)
+
 	popularity_score = models.IntegerField()	
 
 	def __unicode__(self):

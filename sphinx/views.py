@@ -20,6 +20,13 @@ def tips_add(request):
 			tip_instance = Tip(tip=tip, votes=0)
 			tip_instance.tip_by = request.user
 			tip_instance.save()
+			tag_list = request.POST['tags'].split(',') 
+			for tag in tag_list:
+				#Saving tags now
+				tag = tag.lower()
+				tag_instance = Tag(name=tag, popularity_score=0)
+				tag_instance.save()
+				tag_instance.tip.add(tip_instance)	 
 			return HttpResponseRedirect(tip_instance.get_absolute_url())
 	else:
 		form = AddTipForm()
@@ -28,7 +35,8 @@ def tips_add(request):
 def tips_show(request,tip_id):
 	tip = Tip.objects.get(pk=tip_id)
 	return render_to_response('tips_show.html', 
-								{'tip' : tip }, 
+								{'tip' : tip ,
+								'tags':tip.tag_set.all(),}, 
 								context_instance=RequestContext(request))
 
 def questions_add(request):
